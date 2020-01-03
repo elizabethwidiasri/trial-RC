@@ -33,8 +33,12 @@ function Home() {
         makeups.map(makeup => 
           (makeup.id !== 819 && makeup.id !== 817) && ( 
           <div className="col">
-            <Link to="/detail"  style={style}>
-            <Card makeup={makeup} />
+            <Link to={{
+              pathname: '/eli',
+            state: {
+              uzai: [9, 8, 7]
+            }}}  style={style}>
+              <Card makeup={makeup} />
             </Link>
           </div>
         ))

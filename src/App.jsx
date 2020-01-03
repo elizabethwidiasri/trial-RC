@@ -18,9 +18,8 @@ function App() {
         {/* <Link to="/detail">Detail</Link> */}
 
         <Switch>
-          <Route path="/detail">
-            <Detail /> 
-          </Route>
+          <Route path="/:detail" component={Detail} />
+          
           <Route path="/">
             <Home />
           </Route>
