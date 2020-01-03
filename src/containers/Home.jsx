@@ -30,13 +30,13 @@ function Home() {
   return (
     <div className="makeup-row">
       {
-        makeups.map(makeup => 
+        makeups.map((makeup, i) => 
           (makeup.id !== 819 && makeup.id !== 817) && ( 
-          <div className="col">
+          <div key={'makeup' + i} className="col">
             <Link to={{
               pathname: '/eli',
             state: {
-              uzai: [9, 8, 7]
+              makeup: {makeup}
             }}}  style={style}>
               <Card makeup={makeup} />
             </Link>

@@ -10,14 +10,14 @@ function Detail(props) {
   }
 
   const {detail} = props.match.params
-  const {uzai} = props.location.state
+  const {makeup} = props.location.state
 
   return (
     <div>
     
        <Link to="/" style={style}>Home</Link>
       <p>ini detail {detail} nanti</p>
-       <p>{uzai}</p>
+       <p>{JSON.stringify(makeup)}</p>
     </div>
   )
 }
