@@ -27,26 +27,37 @@ function Home() {
   }, [])
 
   return (
-    <div className="makeup-row">
-      {
-        makeups.map((makeup, i) => 
-          (makeup.id !== 819 && makeup.id !== 817) && ( 
-          <div key={'makeup' + i} className="col">
+    <>
+    {makeups.length > 1 ? 
+      (
+        <div className="makeup-row">
+          {
+            makeups.map((makeup, i) => 
+              (makeup.id !== 819 && makeup.id !== 817) && ( 
+              <div key={'makeup' + i} className="col">
 
-            {/* <Link to={{
-              pathname: `/${makeup.id}`
-            }}  style={style}> */}
+                {/* <Link to={{
+                  pathname: `/${makeup.id}`
+                }}  style={style}> */}
 
-            <Link to={`/${makeup.id}`} style={style}> 
+                <Link to={`/${makeup.id}`} style={style}> 
 
-            {/* <Link to="/detail" style={style}> */}
-              {/* ini kirim makeup ke halaman home */}
-              <Card makeup={makeup} />
-            </Link>
-          </div>
-        ))
-      }
-    </div>
+                {/* <Link to="/detail" style={style}> */}
+                  {/* ini kirim makeup ke halaman home */}
+                  <Card makeup={makeup} />
+                  
+                </Link>
+              </div>
+            ))
+          }
+        </div>
+      )
+      : 
+      (
+        <p>loading...</p>
+      )
+    }
+    </>
   )
 }
 

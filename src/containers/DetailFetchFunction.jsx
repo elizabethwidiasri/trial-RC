@@ -26,19 +26,15 @@ function Detail() {
        <Link to="/" style={style}>Home</Link>
       {/* <p>ini detail {id} nanti</p> */}
        {/* <p>{JSON.stringify(makeup)}</p> */}
-       {makeup ? 
-        (
-          <>
-          <p>{makeup.name.split('&trade;')}</p>
-          <img src={makeup.image_link}></img>
-          <p>{makeup.price_sign} {makeup.price}</p>
-          <p>{makeup.product_type}</p>
-          </>
-        )
-       :
-        <p>loading...</p>}
-
-      
+       { makeup && (
+         <>
+         <p>{makeup.name.split('&trade;')}</p>
+         <img src={makeup.image_link}></img>
+         <p>{makeup.price_sign} {makeup.price}</p>
+         <p>{makeup.product_type}</p>
+         </>
+       )}
+     
 
     </div>
   )
