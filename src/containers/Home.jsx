@@ -34,10 +34,11 @@ function Home() {
           (makeup.id !== 819 && makeup.id !== 817) && ( 
           <div key={'makeup' + i} className="col">
             <Link to={{
-              pathname: '/eli',
+              pathname: `/${makeup.name}`,
             state: {
-              makeup: {makeup}
+              makeup //kirim makeup ke halaman lain
             }}}  style={style}>
+              {/* ini kirim makeup ke halaman home */}
               <Card makeup={makeup} />
             </Link>
           </div>
