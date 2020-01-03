@@ -3,23 +3,31 @@ import {
   Link
 } from 'react-router-dom'
 
+const style = { 
+  textDecoration: 'none' 
+}
 
-function Detail(props) {
-  const style = { 
-    textDecoration: 'none' 
+class Detail extends React.Component {
+
+  state = {
+    detail : this.props.match.params.detail,
+    makeup : this.props.location.state.makeup
   }
 
-  const {detail} = props.match.params
-  const {makeup} = props.location.state
-
-  return (
+  render () {
+    return (
     <div>
-    
-       <Link to="/" style={style}>Home</Link>
-      <p>ini detail {detail} nanti</p>
-       <p>{JSON.stringify(makeup)}</p>
-    </div>
-  )
+        <Link to="/" style={style}>Home</Link>
+       <p>ini detail {this.state.detail} nanti</p>
+        {/* <p>{JSON.stringify(makeup)}</p> */}
+       <p>{this.state.makeup.name}</p>
+       <img src={this.state.makeup.image_link}></img>
+       <p>{this.state.makeup.price_sign} {this.state.makeup.price}</p>
+       <p>{this.state.makeup.product_type}</p>
+
+     </div>
+    )
+  }
 }
 
 export default Detail
