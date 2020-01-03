@@ -18,11 +18,17 @@ function App() {
         {/* <Link to="/detail">Detail</Link> */}
 
         <Switch>
-          <Route path="/:detail" component={Detail} />
+
+          {/* <Route path="/id" component={Detail} /> */}
+
+          <Route path="/:id">
+            <Detail />
+          </Route>
           
           <Route path="/">
             <Home />
           </Route>
+
         </Switch>
       </div>
     </Router>

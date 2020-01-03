@@ -23,7 +23,6 @@ function Home() {
   // }
 
   useEffect(() => {
-    console.log("gas")
     dispatch(getMakeups())
   }, [])
 
@@ -33,11 +32,14 @@ function Home() {
         makeups.map((makeup, i) => 
           (makeup.id !== 819 && makeup.id !== 817) && ( 
           <div key={'makeup' + i} className="col">
-            <Link to={{
-              pathname: `/${makeup.id}`,
-            state: {
-              makeup //kirim makeup ke halaman detail
-            }}}  style={style}>
+
+            {/* <Link to={{
+              pathname: `/${makeup.id}`
+            }}  style={style}> */}
+
+            <Link to={`/${makeup.id}`} style={style}> 
+
+            {/* <Link to="/detail" style={style}> */}
               {/* ini kirim makeup ke halaman home */}
               <Card makeup={makeup} />
             </Link>

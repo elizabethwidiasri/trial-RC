@@ -1,33 +1,43 @@
 import React, {useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getMakeup } from '../store/actions'
+
 import {
-  Link
+  Link, useParams
 } from 'react-router-dom'
 
-const style = { 
-  textDecoration: 'none' 
-}
 
-class Detail extends React.Component {
-
-  state = {
-    detail : this.props.match.params.detail,
-    makeup : this.props.location.state.makeup
+function Detail() {
+  const style = { 
+    textDecoration: 'none' 
   }
 
-  render () {
-    return (
+  let {id} = useParams()
+  const dispatch = useDispatch()
+  const makeup = useSelector(state => state.makeup)
+
+
+  useEffect(() => {
+    dispatch(getMakeup(id))
+  }, [])
+
+  return (
     <div>
-        <Link to="/" style={style}>Home</Link>
-       <p>ini detail {this.state.detail} nanti</p>
-        {/* <p>{JSON.stringify(makeup)}</p> */}
-       <p>{this.state.makeup.name}</p>
-       <img src={this.state.makeup.image_link}></img>
-       <p>{this.state.makeup.price_sign} {this.state.makeup.price}</p>
-       <p>{this.state.makeup.product_type}</p>
+       <Link to="/" style={style}>Home</Link>
+      {/* <p>ini detail {id} nanti</p> */}
+       {/* <p>{JSON.stringify(makeup)}</p> */}
+       { makeup && (
+         <>
+         <p>{makeup.name.split('&trade;')}</p>
+         <img src={makeup.image_link}></img>
+         <p>{makeup.price_sign} {makeup.price}</p>
+         <p>{makeup.product_type}</p>
+         </>
+       )}
+     
 
-     </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Detail

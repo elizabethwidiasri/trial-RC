@@ -2,7 +2,8 @@ import { createStore, applyMiddleware} from 'redux'
 import Thunk from 'redux-thunk'
 
 const initialMakeup = {
-  makeups : []
+  makeups : [],
+  makeup : null
 }
 
 function makeup(state = initialMakeup, action) {
@@ -12,6 +13,11 @@ function makeup(state = initialMakeup, action) {
       ...state,
       makeups: action.makeups
     }
+    case 'SET_MAKEUP' :
+      return {
+        ...state,
+        makeup: action.makeup
+      }
     default : 
       return state
   }

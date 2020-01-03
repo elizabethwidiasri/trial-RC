@@ -7,3 +7,14 @@ export const getMakeups = () => async dispatch => {
   })
 }
 
+export const getMakeup = (id) => async dispatch => {
+  const response = await fetch(`http://makeup-api.herokuapp.com/api/v1/products.json?brand=clinique`)
+  const responseJSON = await response.json()
+  const makeup = responseJSON.filter(data => String(data.id) === String(id))[0]
+  console.log(id);
+  
+  dispatch({
+    type: 'SET_MAKEUP',
+    makeup
+  })
+}
